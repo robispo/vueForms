@@ -56,10 +56,21 @@
         >
           <div class="form-group">
             <label for="sendmail">
-              <input type="checkbox" id="sendmail" value="SendMail" /> Send Mail
+              <input
+                type="checkbox"
+                id="sendmail"
+                value="SendMail"
+                v-model="sendMail"
+              />
+              Send Mail
             </label>
             <label for="sendInfomail">
-              <input type="checkbox" id="sendInfomail" value="SendInfoMail" />
+              <input
+                type="checkbox"
+                id="sendInfomail"
+                value="SendInfoMail"
+                v-model="sendMail"
+              />
               Send Infomail
             </label>
           </div>
@@ -70,10 +81,10 @@
           class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group"
         >
           <label for="male">
-            <input type="radio" id="male" value="Male" /> Male
+            <input type="radio" id="male" value="Male" v-model="gender" /> Male
           </label>
           <label for="female">
-            <input type="radio" id="female" value="Female" /> Female
+            <input type="radio" id="female" value="Female" v-model="gender" /> Female
           </label>
         </div>
       </div>
@@ -110,7 +121,7 @@
             <p style="white-space:pre">Message: {{ message }}</p>
             <p><strong>Send Mail?</strong></p>
             <ul>
-              <li></li>
+              <li v-for="sm in sendMail">{{ sm }}</li>
             </ul>
             <p>Gender:</p>
             <p>Priority:</p>
@@ -129,9 +140,11 @@ export default {
       userData: {
         email: '',
         password: '',
-        age: 0
+        age: 0,
+        gender:'Male'
       },
-      message: 'Hola!!!'
+      message: 'Hola!!!',
+      sendMail: []
     };
   }
 };
