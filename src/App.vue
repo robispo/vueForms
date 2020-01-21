@@ -81,10 +81,11 @@
           class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group"
         >
           <label for="male">
-            <input type="radio" id="male" value="Male" v-model="gender" /> Male
+            <input type="radio" id="male" value="Male" v-model="userData.gender" /> Male
           </label>
           <label for="female">
-            <input type="radio" id="female" value="Female" v-model="gender" /> Female
+            <input type="radio" id="female" value="Female" v-model="userData.gender" />
+            Female
           </label>
         </div>
       </div>
@@ -123,7 +124,7 @@
             <ul>
               <li v-for="sm in sendMail">{{ sm }}</li>
             </ul>
-            <p>Gender:</p>
+            <p>Gender: {{ userData.gender }}</p>
             <p>Priority:</p>
             <p>Switched:</p>
           </div>
@@ -141,7 +142,7 @@ export default {
         email: '',
         password: '',
         age: 0,
-        gender:'Male'
+        gender: 'Male'
       },
       message: 'Hola!!!',
       sendMail: []
