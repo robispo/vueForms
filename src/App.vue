@@ -81,10 +81,21 @@
           class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group"
         >
           <label for="male">
-            <input type="radio" id="male" value="Male" v-model="userData.gender" /> Male
+            <input
+              type="radio"
+              id="male"
+              value="Male"
+              v-model="userData.gender"
+            />
+            Male
           </label>
           <label for="female">
-            <input type="radio" id="female" value="Female" v-model="userData.gender" />
+            <input
+              type="radio"
+              id="female"
+              value="Female"
+              v-model="userData.gender"
+            />
             Female
           </label>
         </div>
@@ -94,8 +105,10 @@
           class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group"
         >
           <label for="priority">Priority</label>
-          <select id="priority" class="form-control">
-            <option></option>
+          <select id="priority" class="form-control" v-model="priority">
+            <option v-for="(p, i) in priorities" :selected="i == 2">{{
+              p
+            }}</option>
           </select>
         </div>
       </div>
@@ -125,7 +138,7 @@
               <li v-for="sm in sendMail">{{ sm }}</li>
             </ul>
             <p>Gender: {{ userData.gender }}</p>
-            <p>Priority:</p>
+            <p>Priority: {{ priority }}</p>
             <p>Switched:</p>
           </div>
         </div>
@@ -145,7 +158,9 @@ export default {
         gender: 'Male'
       },
       message: 'Hola!!!',
-      sendMail: []
+      sendMail: [],
+      priorities: ['H', 'M', 'L'],
+      priority: ''
     };
   }
 };
